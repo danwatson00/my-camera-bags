@@ -1,0 +1,6 @@
+.sidebar {
+    grid-column: 1;
+    grid-row: 1 /span 2;
+    /* background: rgba($colorE, 0.25); */
+    /* font-family: $font2; */
+}
