@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 import { rebase } from './components/Base';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import MainDiv from './components/MainDiv';
 import Footer from './components/Footer';
+import $ from 'jquery';
 
 
 
@@ -15,7 +17,9 @@ class App extends Component {
     this.state = {
       authed: false,
       loading: true,
+      user: {},
       uid: null,
+
     }
 
   }
@@ -29,6 +33,7 @@ class App extends Component {
           authed: true,
           loading: false,
           uid: user.uid,
+          user: user,
         });
         //get DB stuff for user here
       } else {
@@ -44,12 +49,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Sidebar />
-        <MainDiv />
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Sidebar />
+          <MainDiv />
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }

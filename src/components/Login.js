@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loginWithGoogle, logout } from './Auth';
 import { BrowserRouter } from 'react-router-dom';
 import { rebase } from './Base.js';
+import "./login.css";
 
 
 class Login extends Component {
@@ -69,16 +70,17 @@ class Login extends Component {
                 {this.state.authed
                     ?
 
-                    <div>
-                        <p>success</p>
+                    <div className="container">
+                        <div className="d-flex flex-column justify-content-center text-center">
+                            <button type="button" onClick={() => this.logoutApp('google')} className="logout-btn log-btn btn btn-secondary">LOGOUT</button>
+                        </div>
                     </div>
 
                     :
 
                     <div className="container">
                         <div className="d-flex flex-column justify-content-center text-center">
-                            <h1> Google Login</h1>
-                            <button type="button" onClick={() => this.authenticate('google')} className="login-btn btn btn-secondary btn-lg">Login</button>
+                            <button type="button" onClick={() => this.authenticate('google')} className="login-btn log-btn btn btn-secondary">LOGIN</button>
                         </div>
                     </div>
                 }
