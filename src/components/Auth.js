@@ -9,8 +9,10 @@ export function auth(email, pw) {
 }
 
 export function logout() {
+    console.log("logout clicked");
     return rebase.initializedApp.auth().signOut()
 }
+
 
 
 export function loginWithGoogle() {

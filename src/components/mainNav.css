@@ -1,0 +1,25 @@
+.mainNav {
+    grid-column: 1;
+    justify-self: end;
+    align-self: center;
+}
+
+
+.headerNav {
+    color: black;
+    list-style-type: none;
+}
+
+.headerNav li {
+    font-size: .8em;
+    font-family: "Lato", san-serif;
+    display: inline;
+    align-self: center;
+    padding: 5px;
+    margin: 0 15px 0 15px;
+    
+}
+
+.headerNav li a {
+    text-decoration: none;
+}
