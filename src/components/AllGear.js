@@ -11,12 +11,16 @@ class AllGear extends React.Component {
         }
     }
     componentDidMount = () => {
-        fetch('https://my-camera-bag.firebaseio.com/items.json')
+        fetch('https://my-camera-bag.firebaseio.com/items.json',
+            {
+            method: "GET",
+            })
             .then(results => {
                 return results.json();  
             }).then((data) => {
+                let stuff = Object.values(data);
                 this.setState({
-                    allGearArray: data
+                    allGearArray: stuff
                 })
 
             });
