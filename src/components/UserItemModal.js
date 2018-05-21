@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// 
 import './itemModal.css';
 
 
-class ItemModal extends React.Component {
+class UserItemModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,9 +37,10 @@ class ItemModal extends React.Component {
         });
     }
 
-    addItemToBag() {
-        console.log("addItemToBag props", this.props);
-        let userBagItemObj = {
+    addToUserItems() {
+        console.log("addToUserItems props", this.props);
+        let userItemObj = {
+            "productId": this.props.id,
             "itemCategory": this.props.itemCategory,
             "itemCondition": this.props.itemCondition,
             "itemDescription": this.props.itemDescription,
@@ -53,8 +53,6 @@ class ItemModal extends React.Component {
             "uid": this.props.uid
         }
 
-        
-
         fetch('https://my-camera-bag.firebaseio.com/userItems.json',
             {
                 headers: {
@@ -62,7 +60,7 @@ class ItemModal extends React.Component {
                     'Content-Type': 'application/json'
                 },
                 method: "POST",
-                body: JSON.stringify(userBagItemObj)
+                body: JSON.stringify(userItemObj)
             })
 
     }
@@ -78,10 +76,10 @@ class ItemModal extends React.Component {
                     <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
                     <ModalBody>
                         <img src={this.props.itemImageURL} className="modal-image" alt={this.props.itemMake}></img>
-                            <h5 className="infoModal-h5">Item Description</h5>
-                            <p>{this.props.itemDescription}</p>
+                        <h5 className="infoModal-h5">Item Description</h5>
+                        <p>{this.props.itemDescription}</p>
                         <h5>Product Manual</h5><p><a href={this.props.itemManualURL}>{this.props.itemMake} {this.props.itemModel} Manual</a></p>
-    
+
                         <Button color="success" onClick={this.toggleNested}>Edit Item</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                             <ModalHeader>Nested Modal title</ModalHeader>
@@ -112,4 +110,4 @@ class ItemModal extends React.Component {
 
 
 
-export default ItemModal;
+export default UserItemModal;

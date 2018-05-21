@@ -1,39 +1,31 @@
 import React from 'react';
-import ItemModal from './ItemModal';
+import UserItemModal from './UserItemModal';
 import "./gearCardTemplate.css";
 
 
 
-let GearCardTemplate = (props) => {
+let UserGearCardTemplate = (props) => {
 
-        console.log("GearCardTemplate data", props.data);
-        console.log("props", props);
+    console.log("UserGearCardTemplate data", props.data);
+    console.log("props", props);
 
     function handleClick(data) {
         console.log("data", data);
         console.log("yolanda", props);
         if (props.auth) {
-            let userItemObj = {
-                "itemCategory": data.itemCategory,
-                "itemSubCategory": data.itemSubCategory,
-                "uid": data.uid,
-                "itemCondition": data.itemCondition,
-                "itemDescription": data.itemDescription,
-                "itemImageURL": data.itemImageURL,
-                "itemMake": data.itemMake,
-                "itemModel": data.itemModel,
-                "itemNotes": data.itemNotes,
-                "manualURL": data.manualURL
+            let userBagItemObj = {
+                "fbID": data.fbID,
+                "uid": data.uid
             }
 
-            fetch('https://my-camera-bag.firebaseio.com/userItems',
+            fetch('https://my-camera-bag.firebaseio.com/userBagItems',
                 {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
                     method: "POST",
-                    body: JSON.stringify(userItemObj)
+                    body: JSON.stringify(userBagItemObj)
                 })
 
             window.alert("Added to Your Items")
@@ -43,29 +35,30 @@ let GearCardTemplate = (props) => {
             window.alert("Please log in to add items to your account");
         }
     }
-    console.log("Gear Card Props after auth", props)
 
-    const allItems = props.data.map((item, index) =>
+    const userItems = props.data.map((item, index) =>
         <div key={index} className="itemCardWrap" >
-            <ItemModal
+            <UserItemModal
                 itemImageURL={item.itemImageURL}
                 itemCategory={item.itemCategory}
                 itemSubCategory={item.itemSubCategory}
                 itemMake={item.itemMake}
                 itemModel={item.itemModel}
                 itemDescription={item.itemDescription}
+                itemNotes={props.itemNotes}
+                itemCondition={props.itemCondition}
                 buyNewURL={item.buyNewURL}
                 manualURL={item.manualURL} />
         </div>
     )
     return (
         <div className="gearDiv">
-            {allItems}
+            {userItems}
         </div>
     )
 }
 
 
-export default GearCardTemplate;
+export default UserGearCardTemplate;
 
 
