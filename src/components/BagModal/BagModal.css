@@ -1,0 +1,50 @@
+.bagCard {
+    display: grid;
+    grid-template-rows: 50px auto auto auto auto;
+    padding: 5px;
+    margin: 10px;
+    max-width: 225px;
+    border-radius: 8px;
+    -webkit-box-shadow: 3px 3px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 7px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.75);
+}
+
+.bagCardLogo {
+    grid-row: 1;
+    max-width: 30%;
+    margin-top: 15px;
+    border: 2px solid black;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+}
+
+.bag-headline {
+    grid-row: 2;
+    margin-top: 20px;
+    font-size: 2em;
+    justify-self: center;
+    align-self: center;
+} 
+
+.bagCardContents {
+    grid-row: 3;
+    margin-top: 5px;
+    justify-self: center;
+    align-self: center;
+}
+
+
+.my-bag-items-btn {
+    grid-row: 4;
+    margin-top: 5px;
+    justify-self: center;
+    align-self: center;
+}
+.my-bag-info-btn {
+    grid-row: 5;
+    margin-top: 5px;
+    justify-self: center;
+    align-self: center;
+}

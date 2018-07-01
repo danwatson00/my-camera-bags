@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import { rebase } from './components/Base';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import MainDiv from './components/MainDiv';
-import Footer from './components/Footer';
-import $ from 'jquery';
+import React, { Component } from 'react'
+import './App.css'
+import { rebase } from './components/Base/Base'
+import Header from './components/Header/Header'
+import Sidebar from './components/SideBar/Sidebar'
+import Home from './components/Home/Home'
+import Footer from './components/Footer/Footer'
+import { Route, Switch } from 'react-router-dom'
+import * as routes from './constants/routes'
+// import $ from 'jquery'
+import AllGear from './components/AllGear/AllGear'
+import AllBags from './components/AllGear/AllGear'
+import UserGear from './components/UserGear/UserGear'
+import UserBags from './components/UserBags/UserBags'
 
 
 
@@ -49,14 +54,44 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <Sidebar />
-          <MainDiv />
-          <Footer />
-        </div>
-      </BrowserRouter>
+      
+
+      <div className="App">
+            <Header />
+            <Sidebar />
+            <Footer />
+
+            <Switch>
+
+                <Route 
+                  exact path={routes.HOME}
+                  component={() => <Home />} 
+                />
+
+                <Route 
+                  exact path={routes.ALL_GEAR}
+                  component={() => <AllGear />} 
+                />
+
+                <Route 
+                  exact path={routes.ALL_BAGS}
+                  component={() => <AllBags />}
+                />
+
+                <Route 
+                  exact path={routes.MY_GEAR}
+                  comontent={() => <UserGear />}
+                />
+
+                <Route 
+                  exact path={routes.MY_BAGS} 
+                  component={() => <UserBags />}
+                />
+            </Switch>
+      </div>
+          
+       
+      
     );
   }
 }
