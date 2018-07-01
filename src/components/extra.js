@@ -44,7 +44,7 @@
     </div>
 
     {/*Edit Item Modal */}
-    <div class="modal fade modalStyle" id="${item}-editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {/* <div class="modal fade modalStyle" id="${item}-editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -71,4 +71,4 @@
                                                         <button type="submit" id="${item}" class="btn btn-primary submitEdit-btn" data-dismiss="modal">Submit</button>
                                                     </div>
                                 </div>
-                            </div>
+                            </div>*/}
